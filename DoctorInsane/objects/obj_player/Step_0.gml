@@ -1,16 +1,26 @@
 var left, right, jump, _velh, chao, _jump;
-left = keyboard_check(vk_left);
-right = keyboard_check(vk_right);
-jump = keyboard_check_pressed(ord("Z"));
-_jump = keyboard_check_released(ord("Z"));
+if (estado != "dano")
+{
+	left = keyboard_check(vk_left);
+	right = keyboard_check(vk_right);
+	jump = keyboard_check_pressed(ord("Z"));
+	_jump = keyboard_check_released(ord("Z"));
 
-chao = place_meeting(x, y + 1, obj_bloco);
+	chao = place_meeting(x, y + 1, obj_bloco);
 
-_velh = (right - left) * vel;
+	_velh = (right - left) * vel;
 
 
 
-velh = lerp(velh, _velh, .1);
+	velh = lerp(velh, _velh, .1);
+} 
+else
+{
+	_velh = 0;
+	chao = place_meeting(x, y + 1, obj_bloco);
+	jump = keyboard_check_pressed(ord("Z"));
+	_jump = keyboard_check_released(ord("Z"));
+}
 
 
 if (!chao)
@@ -167,7 +177,7 @@ switch(estado)
 			sprite_index = tomando_dano;
 				
 			//velh = sign(_velh) * 5;
-			velv = -1;
+			velv = -2;
 			
 			
 			if (dano_control = false)
