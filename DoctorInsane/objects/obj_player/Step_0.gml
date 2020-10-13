@@ -1,5 +1,5 @@
 var left, right, jump, _velh, chao, _jump;
-if (estado != "dano")
+if (estado != "dano" && estado != "morte")
 {
 	left = keyboard_check(vk_left);
 	right = keyboard_check(vk_right);
@@ -18,8 +18,8 @@ else
 {
 	_velh = 0;
 	chao = place_meeting(x, y + 1, obj_bloco);
-	jump = keyboard_check_pressed(ord("Z"));
-	_jump = keyboard_check_released(ord("Z"));
+	jump = false;
+	_jump = false;
 }
 
 
@@ -106,6 +106,10 @@ switch(estado)
 			estado = "dano";
 		}
 		
+		if (global.vida <= 0)
+		{
+			estado = "morte";
+		}
 		break;
 		
 	case "movendo":
@@ -132,6 +136,11 @@ switch(estado)
 			estado = "dano";
 		}
 		
+		if (global.vida <= 0)
+		{
+			estado = "morte";
+		}
+		
 		break;
 	
 	case "subindo":
@@ -148,6 +157,11 @@ switch(estado)
 		if (place_meeting(x, y - 1, obj_espinho) && estado != "dano")
 		{
 			estado = "dano";
+		}
+		
+		if (global.vida <= 0)
+		{
+			estado = "morte";
 		}
 		
 		break;
@@ -171,23 +185,39 @@ switch(estado)
 			estado = "dano";
 		}
 		
+		if (global.vida <= 0)
+		{
+			estado = "morte";
+		}
+		
 		break;
 		
-		case "dano":
-			sprite_index = tomando_dano;
+	case "dano":
+		sprite_index = tomando_dano;
 				
-			//velh = sign(_velh) * 5;
-			velv = -2;
+		//velh = sign(_velh) * 5;
+		velv = -2;
 			
 			
-			if (dano_control = false)
-			{
-				global.vida--;
-				dano_control = true;
-				alarm[1] = room_speed / 2;
-			}
+		if (dano_control = false)
+		{
+			global.vida--;
+			dano_control = true;
+			alarm[1] = room_speed / 2;
+		}
 			
-			break;
+		if (global.vida <= 0)
+		{	
+			estado = "morte";
+		}
+			
+		break;
+	
+	case "morte":
+		image_blend = c_blue;
+		
+		global.vivo = false;
+		break;
 }
 
 

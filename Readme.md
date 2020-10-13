@@ -1,2 +1,2 @@
 # Doctor insane
-Um jogo em desenvolvimento pela pixel studio
+Um jogo em desenvolvimento pela pixel games studio

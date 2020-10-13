@@ -14,3 +14,25 @@ switch(modo)
 		
 		break;
 }
+
+// Fazeno efeito de morte na câmera
+
+if (escuro && global.vida > 0)
+{
+	alpha -= .05;
+	if (alpha <= 0)
+	{
+		claro = true;
+		escuro = false;
+	}
+}
+
+if (global.vida <= 0 && claro)
+{
+	alpha += .01;
+	if (alpha >= .5)
+	{
+		claro = false;
+		escuro = true;
+	}
+}
