@@ -1,0 +1,1 @@
+estado = "velocidade_reduzida";

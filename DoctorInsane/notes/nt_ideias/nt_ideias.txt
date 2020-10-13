@@ -1,0 +1,3 @@
+Ao iniciar uma fase, a tela ir de escuro até clarear tudo
+Quando o player morrer a tela se escurece e e o a fase deve ser reiniciada
+

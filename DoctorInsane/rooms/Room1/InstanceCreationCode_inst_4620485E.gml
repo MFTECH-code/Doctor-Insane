@@ -1,0 +1,1 @@
+estado = "vida_extra";

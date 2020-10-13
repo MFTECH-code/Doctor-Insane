@@ -1,0 +1,1 @@
+estado = "pulo_reduzido";
