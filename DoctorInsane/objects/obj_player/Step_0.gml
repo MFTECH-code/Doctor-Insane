@@ -197,6 +197,7 @@ switch(estado)
 				
 		//velh = sign(_velh) * 5;
 		velv = -2;
+		velh = 0;
 			
 			
 		if (dano_control = false)
@@ -215,6 +216,8 @@ switch(estado)
 	
 	case "morte":
 		image_blend = c_blue;
+
+		velh = 0;
 		
 		global.vivo = false;
 		break;
