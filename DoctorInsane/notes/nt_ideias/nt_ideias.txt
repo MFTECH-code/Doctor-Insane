@@ -1,0 +1,11 @@
+Fazer um sistema de save
+
+Começar a planejar inimigos, com IA
+
+Fazer chão que se destrói ao ser tocado -> Criar um objeto chão destrutivel
+
+Fazer barra de vida
+
+Fazer feedback quando o player receber uma vida a mais
+
+Partícula de movimento

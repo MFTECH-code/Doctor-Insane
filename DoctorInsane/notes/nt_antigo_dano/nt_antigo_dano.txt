@@ -1,0 +1,31 @@
+dano = false;
+dano_timer = room_speed / 2;
+controle_dano = true;
+dano_dir = 0;
+
+
+
+
+Step event
+if (dano) {
+	if (controle_dano) {
+		velv = -3;
+		dano_dir = sign(velh) * -5;
+		controle_dano = false;
+		vida--;
+	}
+	sprite = spr_player_dano;
+	velh = dano_dir;
+	
+	
+	dano_timer--;
+	if (dano_timer <= 0) {
+		dano = false;
+		dano_timer = room_speed / 2;
+		controle_dano = true;
+		audio_play_sound(snd_dano, 1, false);
+		if (vida <= 0) {
+			game_restart();
+		}
+	}
+}
